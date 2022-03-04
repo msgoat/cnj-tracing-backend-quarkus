@@ -78,7 +78,7 @@ spec:
             - name: QUARKUS_JAEGER_AGENT_HOST_PORT
               value: "{{ .Values.tracing.jaeger.agent.host }}:{{ .Values.tracing.jaeger.agent.port }}"
             - name: QUARKUS_JAEGER_REPORTER_LOG_SPANS
-              value: {{ .Values.tracing.jaeger.logsSpans | quote }}
+              value: {{ .Values.tracing.jaeger.logSpans | quote }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
