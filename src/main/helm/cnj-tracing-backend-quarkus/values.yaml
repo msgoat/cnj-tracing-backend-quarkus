@@ -110,7 +110,7 @@ metrics:
   # controls if pods are annotated for scraping
   enabled: true
   # path to metrics endpoint
-  path: /metrics
+  path: /q/metrics
   serviceMonitor:
     # installs a prometheus-operator service monitor CRD when true
     enabled: true
