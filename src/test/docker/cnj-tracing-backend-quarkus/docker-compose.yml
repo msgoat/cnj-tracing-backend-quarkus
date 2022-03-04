@@ -46,7 +46,7 @@ services:
       QUARKUS_DATASOURCE_PASSWORD: changeit
       QUARKUS_DATASOURCE_JDBC_URL: jdbc:postgresql://postgres:5432/cloudtrain
       QUARKUS_JAEGER_AGENT_HOST_PORT: jaeger:6831
-      # WAIT_FOR_PORTS: "postgres:5432"
+      WAIT_FOR_PORTS: "postgres:5432"
     depends_on:
       - downstream
       - postgres

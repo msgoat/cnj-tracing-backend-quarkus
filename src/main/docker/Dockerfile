@@ -18,8 +18,11 @@ ENV JAVA_APPLICATION=${ARG_JAVA_APPLICATION} \
     WAIT_FOR_URLS="" \
     WAIT_FOR_ARGUMENTS="-i 5"
 
-# create non-root user to run application
-RUN echo "adding run user quarkus to system" && \
+RUN echo "install missing tool netcat to be able to wait for postgres" && \
+    apt-get update && \
+    apt-get install --no-install-recommends --yes netcat && \
+    apt-get clean && \
+    echo "adding non-root run user quarkus to system" && \
     addgroup --gid 1000 --system quarkus && \
     adduser --system --disabled-login --disabled-password --ingroup quarkus --uid 1000 quarkus
 
