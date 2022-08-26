@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] - 2022-08-26
+### Added
+### Changed
+- upgraded Quarkus version to 2.11.2
+- consolidated with other showcases
+
 ## [2.0.0] - 2022-03-04
 ### Added
 ### Changed

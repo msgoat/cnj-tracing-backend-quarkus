@@ -18,19 +18,12 @@ ENV JAVA_APPLICATION=${ARG_JAVA_APPLICATION} \
     WAIT_FOR_URLS="" \
     WAIT_FOR_ARGUMENTS="-i 5"
 
-RUN echo "install missing tool netcat to be able to wait for postgres" && \
-    apt-get update && \
-    apt-get install --no-install-recommends --yes netcat && \
-    apt-get clean && \
-    echo "adding non-root run user quarkus to system" && \
+RUN echo "adding non-root run user quarkus to system" && \
     addgroup --gid 1000 --system quarkus && \
     adduser --system --disabled-login --disabled-password --ingroup quarkus --uid 1000 quarkus
 
 # copy entrypoint script
 COPY docker-entrypoint.sh /
-
-# copy wait script
-COPY wait-for.sh $ARG_JAVA_APPLICATION_HOME/
 
 # copy build artifacts into application home folder (here: quarkus deployment folder)
 COPY *.jar ${ARG_JAVA_APPLICATION_HOME}/
@@ -38,7 +31,6 @@ COPY *.jar ${ARG_JAVA_APPLICATION_HOME}/
 # allow non-root user to access and execute all copied files
 RUN chown quarkus:quarkus /docker-entrypoint.sh && \
     chmod u+x /docker-entrypoint.sh && \
-    chmod u+x ${ARG_JAVA_APPLICATION_HOME}/wait-for.sh && \
     chown -R quarkus:quarkus ${ARG_JAVA_APPLICATION_HOME}
 
 # use user ID instead of user name to allow kubernetes to check non-root users

@@ -8,7 +8,7 @@
     <description>Cloud native Java backend using OpenTracing via Jaeger based on Quarkus</description>
     <properties>
         <!-- new Maven version management -->
-        <revision>2.0.0</revision>
+        <revision>2.1.0</revision>
         <sha1></sha1>
         <changelist></changelist>
         <!-- common properties -->
@@ -17,7 +17,7 @@
         <!-- runtime related properties -->
         <java.version>11</java.version>
         <jakartaee.version>9.1.0</jakartaee.version>
-        <quarkus.version>2.7.2.Final</quarkus.version>
+        <quarkus.version>2.11.2.Final</quarkus.version>
         <quarkus.package.type>uber-jar</quarkus.package.type>
         <microprofile.version>4.1</microprofile.version>
         <!-- common logging dependencies -->
@@ -158,6 +158,11 @@
             <artifactId>quarkus-flyway</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.3.3</version>
+        </dependency>
+        <dependency>
             <groupId>group.msg.at.cloud.common</groupId>
             <artifactId>cnj-common-persistence-jpa</artifactId>
             <version>2.1.0</version>
@@ -167,13 +172,13 @@
             <artifactId>quarkus-logging-json</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-metrics</artifactId>
-        </dependency>
-        <dependency>
             <groupId>group.msg.at.cloud.common</groupId>
             <artifactId>cnj-common-observability-javax</artifactId>
             <version>0.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-micrometer-registry-prometheus</artifactId>
         </dependency>
         <!-- showcase specific section -->
         <dependency>
