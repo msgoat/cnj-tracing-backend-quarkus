@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2023-05-25
+### Changed
+- upgraded to Java 17
+- upgraded to Quarkus 2.16.3
+- moved to new CloudTrain kubernetes cluster
+- switched to new docker base image cnj-docker-jre17-alpine
+- improved ingress management in helm chart with added nginx support
+- switched to nginx ingress controller
+
 ## [2.1.1] - 2022-11-14
 ### Added
 ### Changed

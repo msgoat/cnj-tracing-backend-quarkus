@@ -32,8 +32,8 @@ services:
     image: docker.cloudtrain.aws.msgoat.eu/cloudtrain/cnj-tracing-downstream:latest
     environment:
       DOCKER_JAVA_OPTS: -Xms2g -Xmx2g
-      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI: https://oidc.cloudtrain.aws.msgoat.eu/auth/realms/cloudtrain/protocol/openid-connect/certs
-      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI: https://oidc.cloudtrain.aws.msgoat.eu/auth/realms/cloudtrain
+      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI: https://oidc.cloudtrain.aws.msgoat.eu/realms/cloudtrain/protocol/openid-connect/certs
+      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI: https://oidc.cloudtrain.aws.msgoat.eu/realms/cloudtrain
       CONSOLE_LOG_PATTERN: "%d{yyyy-MM-dd'T'HH:mm:ss.SSS} %5p --- [%15.15t] %-40.40logger{39} : [%X{userId}] [%X{traceId}] %m%n%wEx"
     depends_on:
       jaeger:
@@ -46,8 +46,8 @@ services:
     environment:
       QUARKUS_PROFILE: dev
       DOCKER_JAVA_OPTS: -Xms2g -Xmx2g
-      MP_JWT_VERIFY_PUBLICKEY_LOCATION: "https://oidc.cloudtrain.aws.msgoat.eu/auth/realms/cloudtrain/protocol/openid-connect/certs"
-      MP_JWT_VERIFY_ISSUER: "https://oidc.cloudtrain.aws.msgoat.eu/auth/realms/cloudtrain"
+      MP_JWT_VERIFY_PUBLICKEY_LOCATION: "https://oidc.cloudtrain.aws.msgoat.eu/realms/cloudtrain/protocol/openid-connect/certs"
+      MP_JWT_VERIFY_ISSUER: "https://oidc.cloudtrain.aws.msgoat.eu/realms/cloudtrain"
       CLOUDTRAIN_COMMON_REST_TRACE_ENABLED: "true"
       CLOUDTRAIN_SERVICES_GRANTEDPERMISSIONS_MP_REST_URL: "http://downstream:8080"
       QUARKUS_DATASOURCE_USERNAME: postgres
