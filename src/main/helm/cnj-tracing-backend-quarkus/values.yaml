@@ -120,6 +120,6 @@ tracing:
   enabled: true
   jaeger:
     agent:
-      host: jaeger-agent.tracing
+      host: trace-jaeger-agent.tracing
       port: 6831
     logSpans: false
