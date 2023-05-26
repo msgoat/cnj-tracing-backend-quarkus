@@ -46,7 +46,7 @@ phases:
           aws eks update-kubeconfig --name $CLOUDTRAIN_EKS_CLUSTER_NAME
           kubectl cluster-info
           echo "Running integration-test-stage of the build"
-          mvn clean verify -f pom.xml -B -ff -e -V -U -P integration-test-stage -Dchangelist=.$BRANCH -Dsha1=.${CODEBUILD_RESOLVED_SOURCE_VERSION:0:8} -Dk8s.cluster.route=$CLOUDTRAIN_EKS_CLUSTER_ROUTE -Dk8s.cluster.namespace=$CLOUDTRAIN_EKS_NAMESPACE -Dk8s.ingress.host=$CLOUDTRAIN_EKS_INGRESS_HOST
+          mvn clean verify -f pom.xml -B -ff -e -V -U -P integration-test-stage -Dchangelist=.$BRANCH -Dsha1=.${CODEBUILD_RESOLVED_SOURCE_VERSION:0:8} -Dk8s.cluster.route=$CLOUDTRAIN_EKS_CLUSTER_ROUTE -Dk8s.cluster.namespace=$CLOUDTRAIN_EKS_NAMESPACE -Dk8s.ingress.host=$CLOUDTRAIN_EKS_INGRESS_HOST -Dtest.target.route=https://$CLOUDTRAIN_EKS_INGRESS_HOST/$CLOUDTRAIN_EKS_NAMESPACE
         fi
   post_build:
     commands:
