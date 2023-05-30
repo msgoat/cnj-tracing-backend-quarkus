@@ -13,7 +13,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
   {{- end }}
   {{- if .Values.tracing.enabled }}
-    nginx.ingress.kubernetes.io/enable-opentracing: "true"
+    nginx.ingress.kubernetes.io/enable-opentelemetry: "true"
   {{- end }}
   {{- with .Values.ingress.annotations }}
     {{- toYaml . | nindent 4 }}
