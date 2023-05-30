@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.0] - 2023-05-30
+### Changed
+- upgraded to Quarkus 3.0.4
+- switched from opentracing/jaeger to opentelemetry/jaeger
+
 ## [3.0.0] - 2023-05-25
 ### Changed
 - upgraded to Java 17

@@ -8,7 +8,7 @@
     <description>Cloud native Java backend using OpenTracing via Jaeger based on Quarkus</description>
     <properties>
         <!-- new Maven version management -->
-        <revision>3.0.0</revision>
+        <revision>3.1.0</revision>
         <sha1>.12345678</sha1>
         <changelist>.LOCAL</changelist>
         <!-- common properties -->
@@ -16,10 +16,10 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- runtime related properties -->
         <java.version>17</java.version>
-        <quarkus.version>2.16.3.Final</quarkus.version>
+        <quarkus.version>3.0.4.Final</quarkus.version>
         <quarkus.package.type>uber-jar</quarkus.package.type>
         <!-- common logging dependencies -->
-        <slf4j.version>1.7.36</slf4j.version>
+        <slf4j.version>2.0.6</slf4j.version>
         <!-- common rest dependencies -->
         <!-- common persistence dependencies -->
         <!-- common test dependencies -->
@@ -27,10 +27,10 @@
         <restassured.version>4.5.1</restassured.version>
         <!-- common cloudtrain dependencies -->
         <cnj.common.rest.version>1.0.0</cnj.common.rest.version>
-        <cnj.common.persistence.jpa.version>3.0.0</cnj.common.persistence.jpa.version>
+        <cnj.common.persistence.jpa.version>1.0.0</cnj.common.persistence.jpa.version>
         <cnj.common.observability.version>1.0.0</cnj.common.observability.version>
         <cnj.common.test.core.version>1.1.0</cnj.common.test.core.version>
-        <cnj.common.test.javax.version>1.0.0</cnj.common.test.javax.version>
+        <cnj.common.test.jakarta.version>1.0.0</cnj.common.test.jakarta.version>
         <!-- docker related properties -->
         <docker.registry.name>docker.cloudtrain.aws.msgoat.eu</docker.registry.name>
         <docker.organization.name>cloudtrain</docker.organization.name>
@@ -133,7 +133,7 @@
         </dependency>
         <dependency>
             <groupId>group.msg.at.cloud.common</groupId>
-            <artifactId>cnj-common-rest-javax</artifactId>
+            <artifactId>cnj-common-rest-jakarta</artifactId>
             <version>${cnj.common.rest.version}</version>
         </dependency>
         <dependency>
@@ -159,7 +159,7 @@
         </dependency>
         <dependency>
             <groupId>group.msg.at.cloud.common</groupId>
-            <artifactId>cnj-common-persistence-jpa</artifactId>
+            <artifactId>cnj-common-persistence-jakarta</artifactId>
             <version>${cnj.common.persistence.jpa.version}</version>
         </dependency>
         <dependency>
@@ -168,7 +168,7 @@
         </dependency>
         <dependency>
             <groupId>group.msg.at.cloud.common</groupId>
-            <artifactId>cnj-common-observability-javax</artifactId>
+            <artifactId>cnj-common-observability-jakarta</artifactId>
             <version>${cnj.common.observability.version}</version>
         </dependency>
         <dependency>
@@ -178,7 +178,7 @@
         <!-- showcase specific section -->
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-opentracing</artifactId>
+            <artifactId>quarkus-opentelemetry</artifactId>
         </dependency>
         <!-- =========================== -->
         <!-- test time dependencies      -->
@@ -212,8 +212,8 @@
         </dependency>
         <dependency>
             <groupId>group.msg.at.cloud.common</groupId>
-            <artifactId>cnj-common-test-javax</artifactId>
-            <version>${cnj.common.test.javax.version}</version>
+            <artifactId>cnj-common-test-jakarta</artifactId>
+            <version>${cnj.common.test.jakarta.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- need to added this JCL over SL4J bridge since Apache HTTP Client used by RestAssured is using commons-logging -->
