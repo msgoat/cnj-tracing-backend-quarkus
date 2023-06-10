@@ -18,9 +18,13 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
 
   jaeger:
     image: jaegertracing/all-in-one:latest
+    ports:
+      - "37090:16686"
     environment:
       COLLECTOR_OTLP_ENABLED: true
 
@@ -36,13 +40,10 @@ services:
         condition: service_started
 
   backend:
-    image: ${docker.image.name}:${project.version}
+    image: docker.cloudtrain.aws.msgoat.eu/cloudtrain/cnj-tracing-backend-quarkus:latest
     ports:
-      - "38080:8080"
-      - "38089:8089"
+      - "38090:8080"
     environment:
-      QUARKUS_PROFILE: dev
-      AGENT_JAVA_OPTS: "-javaagent:/home/quarkus/org.jacoco.agent.jar=output=tcpserver,address=*,port=8089"
       DOCKER_JAVA_OPTS: -Xms1g -Xmx1g
       MP_JWT_VERIFY_PUBLICKEY_LOCATION: "https://oidc.cloudtrain.aws.msgoat.eu/realms/cloudtrain/protocol/openid-connect/certs"
       MP_JWT_VERIFY_ISSUER: "https://oidc.cloudtrain.aws.msgoat.eu/realms/cloudtrain"
@@ -57,3 +58,7 @@ services:
         condition: service_healthy
       jaeger:
         condition: service_started
+
+volumes:
+
+  postgres-data:
