@@ -20,18 +20,19 @@
         <quarkus.package.type>uber-jar</quarkus.package.type>
         <!-- common logging dependencies -->
         <slf4j.version>2.0.6</slf4j.version>
+        <log4j.version>2.20.0</log4j.version>
         <!-- common rest dependencies -->
        <!-- common persistence dependencies -->
         <!-- common test dependencies -->
         <junit.version>5.10.0</junit.version>
         <assertj.version>3.24.2</assertj.version>
-        <restassured.version>5.3.0</restassured.version>
+        <restassured.version>5.3.2</restassured.version>
+        <jackson.version>2.15.3</jackson.version>
         <!-- common cloudtrain dependencies -->
-        <cnj.common.rest.version>1.0.0</cnj.common.rest.version>
-        <cnj.common.persistence.jpa.version>1.0.0</cnj.common.persistence.jpa.version>
-        <cnj.common.observability.version>1.0.0</cnj.common.observability.version>
-        <cnj.common.test.core.version>1.1.0</cnj.common.test.core.version>
-        <cnj.common.test.jakarta.version>1.0.0</cnj.common.test.jakarta.version>
+        <cnj.common.rest.version>1.1.0</cnj.common.rest.version>
+        <cnj.common.persistence.jpa.version>1.1.0</cnj.common.persistence.jpa.version>
+        <cnj.common.observability.version>1.1.0</cnj.common.observability.version>
+        <cnj.common.test.core.version>1.2.0</cnj.common.test.core.version>
         <!-- docker related properties -->
         <docker.registry.name>docker.cloudtrain.aws.msgoat.eu</docker.registry.name>
         <docker.organization.name>cloudtrain</docker.organization.name>
@@ -192,12 +193,6 @@
             <groupId>group.msg.at.cloud.common</groupId>
             <artifactId>cnj-common-test-core</artifactId>
             <version>${cnj.common.test.core.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>group.msg.at.cloud.common</groupId>
-            <artifactId>cnj-common-test-jakarta</artifactId>
-            <version>${cnj.common.test.jakarta.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- need to added this JCL over SL4J bridge since Apache HTTP Client used by RestAssured is using commons-logging -->
