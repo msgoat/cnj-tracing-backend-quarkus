@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Fixed
 
+## [4.0.1] - 2024-04-05
+### Fixed
+- added missing docker platforms to trigger multi-architecture builds
+
 ## [4.0.0] - 2024-03-05
 ### Changed
 - upgraded Quarkus to version 3.8.1
